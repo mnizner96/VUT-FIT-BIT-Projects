@@ -1,3 +1,8 @@
+/* Author: Martin Nizner
+ * Description: Analýza textových súborov(dátum, palindrom, číslo, slovo)
+*/ 
+
+
 #include <stdio.h>
 #include <limits.h>
 #include <stdbool.h> //pre pouzitie premennej typu bool 
