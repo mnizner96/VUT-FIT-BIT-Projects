@@ -1,0 +1,181 @@
+#!/bin/sh
+FILE_ERE='.^'
+while getopts :i: o
+    do case "$o" in
+        i)
+            if [ "$#" -gt "3" ] then
+                echo "Chyba, zadali ste nespravny pocet argumentov">&2
+                exit 1
+            fi
+            FILE_ERE="$OPTARG"
+            if [ "$#" = "2" ] then
+                PTH=`pwd`
+            else
+                PTHPOM=$3
+                PTH=`readlink -m $PTHPOM`
+            fi ;;
+        ?)
+            echo "Chyba, program je ptorebne spustit s prepinacom -i za ktory sa uvedie nazov ktory sa bude ignorovat ">&2
+            exit 1 ;;
+    esac
+done
+
+if [ "$OPTIND" = "1" ] then
+    case "$#" in
+        "1")
+            PTHPOM=$1
+            PTH=`readlink -m $PTHPOM`;;
+        "0")
+            PTH=`pwd`;;
+        *)
+            echo "Chyba, pri spustani bez prepinaca zadajte len 1 alebo ziadny argument">&2
+        exit 1;;
+    esac
+fi
+
+cd $PTH || {
+    echo "Chyba, je potrebne zadat spravnu cestu">&2
+    exit 1
+}
+
+PTH_ERR=`pwd | awk -F/ '{print $NF}' | egrep "$FILE_ERE" | wc -l`
+if [ "$PTH_ERR" = "1" ] then
+    echo "Chyba FILE_ERE nesmie pokryvat korenovy adresar">&2
+    exit 1
+fi
+
+ND=`find "$PTH" -type d -printf '%f\n' 2>/dev/null | egrep -v "$FILE_ERE" | wc -l`      
+
+poc="1"
+max="0"
+while (($poc != 0))
+do
+   ((max++))
+   poc=`find "$PTH" -mindepth "$max" -type d -printf '%f\n 2>/dev/null' | egrep -v "$FILE_ERE" | wc -l`
+done
+
+poc=`find "$PTH" -type f -printf '%f\n' 2>/dev/null | egrep -v "$FILE_ERE" | wc -l`
+((AF="$poc"/"$ND"))
+
+NF=`find "$PTH" -type f -printf '%f\n' 2>/dev/null | egrep -v "$FILE_ERE" | wc -l`
+
+FL=`find -type f -printf '%f\n' 2>/dev/null | egrep -v "$FILE_ERE"`
+poc=`echo "$FL" | wc -l`
+while (($poc != 0)) 
+    do
+        FL1=`echo "$FL" | head -n "$poc" | tail -n 1`
+        if [ "$FL1" = "*" ] then
+            FSL+=`find -type f -name [*] -printf '%s\n' 2>/dev/null` 
+        else
+            FSL+=`find -type f -name "$FL1" -printf '%s\n' 2>/dev/null`
+            EXTERN+=`find "$PTH" -type f -name "$FL1" -name '*.*' 2>/dev/null | awk -F. '$NF ~ /^[0-z]+$/ {print $NF;}'`  
+        fi
+        if [ "$poc" -gt "1" ] then
+            FSL="$FSL"$'\n'
+            EXTERN="$EXTERN"$'\n'
+        fi
+        ((poc--))
+done
+
+EXTERN=`echo "$EXTERN" | sort -u | xargs | sed -e 's/ /,/g'`
+
+LF=`echo "$FSL" | sort -nr | head -n 1` 
+if [ "$LF" == "" ] then 
+    LF=`echo "N/A"`
+fi 
+   
+SUMOF=`echo "$FSL" | awk '{x=x+$1; print x;}' | tail -n 1`
+if [ "$NF" == "0" ] then
+    AS=`echo "N/A"`
+elif [ "$SUMOF" == "0" ] then
+    AS="0"
+else
+    ((AS="$SUMOF"/"$NF"))
+fi
+
+if [ "$NF" == "0" ] then
+    MS=`echo "N/A"`
+else
+    ((mod="$NF"%"2"))
+    ((MPOS="$NF"/2+1))
+    if [ "$mod" != "0" ]  then
+        MS=`echo "$FSL" | sort -n | head -n "$MPOS" | tail -n 1`
+    elif [ "$mod" == "0" ] then
+        MS=`echo "$FSL" | sort -n | head -n "$MPOS" | tail -n 2 | awk '{x=x+$1; print x;}' | tail -n 1 | awk '{x=$1/2; printf ("%d\n",x);}'` 
+    fi 
+fi
+
+echo "Root directory: $PTHPOM"
+echo "Directories: $ND"
+echo "Max depth: $max"
+echo "All files: $NF"
+echo "Average no. of files: $AF"
+echo "  Largest file: $LF"
+echo "  Average file size: $AS"
+echo "  File size median: $MS"
+echo "File extensions: $EXTERN"  
+if [ "$EXTERN" != "" ]  then
+    EXTERN=`echo "$EXTERN" | awk -F, '{for (i=1;i<=NF;i++) print $i}'`
+    NEXTERN=`echo "$EXTERN" | wc -l`
+    while (($NEXTERN!=0))
+        do
+          poc=`echo "$FL" | wc -l`
+          EXT=`echo "$EXTERN" | tail -n "$NEXTERN" | head -n 1`
+          unset EXTSL
+          unset NEXT
+          while ((poc!=0))
+              do
+                  FL1=`echo "$FL" | head -n "$poc" | tail -n 1`
+                  if [ "$FL1" = "*" ] then
+                      EXTSL+=`find -type f -name "*.$EXT" -name [*] -printf '%s \n' 2>/dev/null`
+                      NEXT1=`find -type f -name "*.$EXT" -name [*] |wc -l 2>/dev/null`
+                  else
+                      EXTSL+=`find -type f -name "*.$EXT" -name "$FL1" -printf '%s \n' 2>/dev/null`
+                      NEXT1=`find -type f -name "*.$EXT" -name "$FL1" 2>/dev/null | wc -l`
+                  fi
+              ((NEXT=$NEXT+$NEXT1))
+              if [ "$poc" -gt "1" ] then
+                  EXTSL="$EXTSL"$'\n'
+              fi
+              ((poc--))
+          done
+    LFE=`echo "$EXTSL" | sort -nr | head -n 1`
+    if [ "$LFE" == "" ] then
+        LFE=`echo "N/A"`
+    fi
+    SUMOFEXT=`echo "$EXTSL" | awk '{x=x+$1; print x;}' | tail -n 1`
+    if [ "$NEXT" == "0" ] then
+        AFEXT=`echo "N/A"`
+    elif [ "$SUMOFEXT" == "0" -o "$SUMOFEXT" == "" ] then
+        AFEXT="0"
+    else
+        ((AFEXT=$SUMOFEXT/$NEXT))
+    fi
+    
+    if [ "$NEXT" == "0" ] then
+        MSEXT="N/A"
+    else
+        ((modext=$NEXT%2))
+        ((MPOSEXT=$NEXT/2+1))
+        MSL=`echo "$EXTSL" | awk '$1 ~ /^[0-9]+$/ {print $1}' | sort -n`
+        if [ "$modext" != "0" ] then
+            MSEXT=`echo "$MSL" | head -n "$MPOSEXT" | tail -n 1`
+        fi
+    
+        if [ "$modext" = "0" ] then 
+            MSEXT=`echo "$MSL" | head -n "$MPOSEXT" | tail -n 2 | awk '{x=x+$1; print x;}' | tail -n 1 | awk '{x=$1/2; printf ("%d\n",x);}'`	
+        fi  
+    fi
+    echo "Files .$EXT: $NEXT"
+    echo "  Largest file .$EXT: $LFE"
+    echo "  Average file size .$EXT: $AFEXT"
+    echo "  File size median .$EXT: $MSEXT"
+    ((NEXTERN--))
+  done
+fi
+exit 0
+
+
+
+ 
+
