@@ -1,0 +1,14 @@
+﻿<Application x:Class="Gallery.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:Gallery.App.Converters"
+             xmlns:local="clr-namespace:Gallery.BL"
+             xmlns:app="clr-namespace:Gallery.App"
+             StartupUri="Views/MainView.xaml">
+    <Application.Resources>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <converters:LoadVisibilityConverter x:Key="LoadVisibilityConverter"/>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <app:ViewModelLocator x:Key="ViewModelLocator" />
+    </Application.Resources>
+</Application>

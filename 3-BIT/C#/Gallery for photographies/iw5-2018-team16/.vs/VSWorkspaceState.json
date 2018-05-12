@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Faze1",
+    "\\Faze1\\Gallery.App",
+    "\\Faze1\\Gallery.App\\ViewModels",
+    "\\Faze1\\Gallery.App\\Views",
+    "\\Faze1\\Gallery.DAL",
+    "\\Gallery.BL",
+    "\\Gallery.BL\\bin",
+    "\\Gallery.BL\\Messages",
+    "\\Gallery.BL\\Models"
+  ],
+  "PreviewInSolutionExplorer": false
+}

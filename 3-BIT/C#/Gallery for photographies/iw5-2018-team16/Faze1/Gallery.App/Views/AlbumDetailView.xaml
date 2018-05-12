@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Gallery.App.Views.AlbumDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModels="clr-namespace:Gallery.App.ViewModels"
+             mc:Ignorable="d" 
+             DataContext="{Binding AlbumDetailViewModel, Source={StaticResource ViewModelLocator}}"
+             d:DataContext="{d:DesignInstance viewModels:AlbumDetailViewModel, IsDesignTimeCreatable=False}"
+             d:DesignWidth="500"
+             d:DesignHeight="600">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="PhotoListTextBlockStyle">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="root" Visibility="{Binding Visible,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}">
+        <Grid MinWidth="460" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Menu>
+                    <MenuItem Header="Back" Command="{Binding ListCommand}">
+                    </MenuItem>
+                    <MenuItem Header="List Album" Command="{Binding BackToAlbumListCommand}">
+                    </MenuItem>
+                    <MenuItem Header="Change Name" Click="ChangeName_Click">
+                    </MenuItem>
+                    <MenuItem Header="Delete Album" Command="{Binding DeleteAlbumCommand}">
+                    </MenuItem>
+                    <MenuItem Header="Sort by">
+                        <MenuItem Header="Name" Command="{Binding SortByNameCommand}"/>
+                        <MenuItem Header="Date" Command="{Binding SortByDateCommand}"/>
+                    </MenuItem>
+                    <MenuItem Header="Filter by">
+                        <MenuItem Header="Date..." Click="DateFilter_Click"/>
+                        <MenuItem Header="Format..." Click="FormatFilter_Click"/>
+                        <MenuItem Header="Resolution..." Click="ResolutionFilter_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Search Image..." Click="Search_Click">
+                    </MenuItem>
+                </Menu>
+            </Grid>
+            <Grid x:Name="LayoutRoot" Grid.Row="1">
+                <ListBox x:Name="LsImageGallery" VerticalContentAlignment="Top" ItemsSource="{Binding Photographies}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectPhotographyCommand}"
+                                           CommandParameter="{Binding ElementName=LsImageGallery, Path=SelectedItem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.Resources>
+                        <ItemsPanelTemplate x:Key="GalleryItemsPanelTemplate">
+                            <UniformGrid Columns="7" HorizontalAlignment="Stretch"  VerticalAlignment="Top"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.Resources>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" HorizontalAlignment="Center"  Height="200" Width="200">
+                            </Image>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                    <ListBox.Style>
+                        <Style TargetType="ListBox">
+                            <Setter Property="ItemsPanel" Value="{StaticResource GalleryItemsPanelTemplate}" />
+                        </Style>
+                    </ListBox.Style>
+                </ListBox>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

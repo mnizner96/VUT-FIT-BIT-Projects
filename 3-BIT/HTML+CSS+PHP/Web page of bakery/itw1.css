@@ -1,0 +1,394 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: Crimson Text;		
+	height: 1000px;	
+}
+#navbar .menu {
+	 background: linear-gradient(to right, #FF6F00, #FFA000);
+	 position: relative;
+	 top: -20px;
+	 text-align: center;
+	 height: 55px;
+	 border-top-style: solid;
+	 border-top-color: #3E2723;
+	 border-top-width: 24px;
+	 z-index: 1;
+}
+
+.menu-left {
+	display: inline;
+	position: absolute;
+	top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+
+}
+.menu-right {
+	position: absolute;
+	top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+	
+.menu-left ul li {
+	display: inline;
+	font-size: 15pt;
+	font-weight: normal;
+	color: white;
+	margin: 0 40px 0px 0px;
+}
+
+.menu-right ul li {
+	display: inline;
+	font-size: 15pt;
+	font-weight: normal;
+	color: white;
+	margin: 0 40px 0px 0px;
+}
+
+.logo {
+	position: relative;
+	top: -20px;
+	background: url("img/logo.png") no-repeat center center;
+	background-position: center top;
+	height: 150px;
+
+}
+.logo span{
+	visibility: hidden;
+}
+
+#page-title {
+	position: relative;
+	background: url("img/bg.png");
+	height: 400px;
+	top: -20px;
+	z-index: 0;
+	text-align: center;
+}
+a:link {
+	color:white;
+	text-decoration: none;
+}
+
+a:hover {
+	color:white;
+	text-decoration: underline;
+}
+
+a:visited {
+	color:white;
+	text-decoration: none;
+}
+
+#page-title h1 {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	font-family: Lobster;
+	font-size: 35pt;
+	color: #5D4037;
+}
+
+#page-title p {
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	transform: translate(-50%, -50%);
+	font-size: 12pt;
+	color: black;
+}
+
+#main {
+	background: url("img/pattern.png");
+	position: relative;
+	top: -42px;
+	height: 1800px;
+}
+.main-text h1{
+	position: absolute;
+	left: 50%;
+	top: 4%;
+	transform: translate(-50%, -50%);
+	font-family: Lobster;
+	font-size: 35pt;
+	color: #5D4037;
+}
+.main-text p{
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%, -50%);
+	font-size: 12pt;
+	color: black;
+	width: 60%;
+	text-align: center;
+}
+
+.main-map {
+	position: absolute;
+	top: 15%;
+	left: 20%;
+	width: 60%;
+
+}
+
+.contacts {
+	position: absolute;
+	top: 42%;
+	left: 20%;
+	width: 35%;
+	line-height: 1.4;
+	background: white;
+	height: 650px;
+}
+
+.form {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.form h2 {
+	font-family: Lobster;
+	color: #5D4037;
+	font-weight: bold;
+}
+
+.box {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+.box h2 {
+	font-family: Lobster;
+	color: #5D4037;
+	font-weight: bold;
+}
+
+.row .left input[placeholder="Your name..."] {
+	position: absolute;
+	width: 245px;
+	height: 28px;
+}
+.row .left input[placeholder="Phone..."]
+{
+	position: absolute;
+	width: 245px;
+	height: 28px;
+	top: 32%;
+}
+.row .right input[placeholder="Email..."] {
+	position: absolute;
+	width: 245px;
+	height: 28px;
+	left: 51%;
+}
+
+.row .right input[placeholder="Subject..."] {
+	position: absolute;
+	width: 245px;
+	height: 28px;
+	left: 51%;
+	top: 32%;
+}
+
+.row .right label {
+  	position: absolute;
+	left: 50%;
+	top: 39%;
+}
+
+.row .left label {
+	position: absolute;
+	top: 39%;
+	left: 10px;
+}
+
+.row .textarea {
+	position: absolute;
+	top: 55%;
+	width: 520px;
+	height: 180px;
+}
+.bottom-row .submit {
+	position: absolute;
+	top: 86%;
+	width: 80px;
+	height: 45px;
+	font-size: 12pt;
+	color: white;
+	background: #FF8F00;
+	border: none;
+}
+
+.box a{
+	color: #FF8F00;
+}
+.box a:hover {
+	color: #5D4037
+}
+
+.info .box:first-child {
+     position: absolute;
+	top: 0px;
+	left: 109%;
+	width: 55%;
+	height: 325px;
+	line-height: 1.4;
+	background: white;
+}
+
+.info .box h2{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.info .box p{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.info .box .social {
+    margin-left: 15px;
+	margin-right: 15px;
+}
+
+.info .box:last-child {
+     position: absolute;
+	top: 350px;
+	left: 109%;
+	width: 55%;
+	line-height: 1.4;
+	background: white;
+	height: 120px;
+}
+
+.info .box:first-child p:last-child{
+	position: absolute;
+	top: 70%;
+}
+	
+.box .fab {
+	font-size: 25pt;
+	letter-spacing: 15px;
+}
+.newsletter {
+	position: absolute;
+	top: 80%;
+	left: 19%;
+	background: white;
+	width: 962px;
+	height: 150px;
+
+}
+
+.newsletter h2 {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.newsletter p {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.newsletter input {
+	position: absolute;
+	width: 750px;
+	height: 35px;
+	top: 65%;
+}
+
+.newsletter button {
+	position: absolute;
+	top: 65%;
+	left: 83%;
+	width: 140px;
+	height: 40px;
+	font-size: 12pt;
+	color: white;
+	background: #FF8F00;
+	border: none;
+}
+
+#footer {
+	color: #AAAAAA;
+	position: relative;
+	top: -230px;
+	width: 100%;
+	background-color:#242323;
+}
+
+#footer .hours{
+	line-height: 1.6;
+	position: absolute;
+	top: -1%;
+	left: 17%;
+}
+
+#footer .about {
+	position: absolute;
+    top: -1%;
+    left: 36%;
+    width: 14%;
+}
+
+#footer .menu {
+	position: relative;
+    width: 14%;
+	top: -1%;
+	left: 58%;
+	line-height: 1.6;
+
+}
+
+#footer .main .inner {
+	padding: 30px;
+}
+
+#footer .main div .footer-title {
+	border-bottom: 1px solid #ffffff;
+	font-weight: bold;
+}
+
+#footer .fab, .fas {
+	font-size: 25pt;
+	letter-spacing: 15px;
+}
+
+#footer i:hover {
+	color: white;
+}
+
+#copyright {
+	position: relative;
+	background-color: #6C6B6B;
+	height: 70px;
+	font-size: 14pt;
+	text-align: center;
+	color: white;
+	top: 50px;
+
+}
+
+#copyright p{
+	position: absolute;
+	left: 40%;
+}
+
+#footer a:hover {
+	color: #AAAAAA;
+}
+
+#footer a:link {
+	color: #AAAAAA;
+}
+
+#footer a:visited {
+	color: #AAAAAA;
+}
+
+.submit:hover {
+	background-color: #5D4037;
+}

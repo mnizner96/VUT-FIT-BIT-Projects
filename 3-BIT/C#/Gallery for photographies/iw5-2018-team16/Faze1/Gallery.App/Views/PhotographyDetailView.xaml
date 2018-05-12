@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Gallery.App.Views.PhotographyDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Gallery.App.ViewModels"
+        mc:Ignorable="d" 
+        DataContext="{Binding PhotographyDetailViewModel, Source={StaticResource ViewModelLocator}}"
+        d:DataContext="{d:DesignInstance viewModels:PhotographyDetailViewModel, IsDesignTimeCreatable=False}"
+        d:DesignWidth="400"
+        d:DesignHeight="600">
+    <Grid x:Name="Root" Visibility="{Binding Detail, Converter={StaticResource NullToVisibilityConverter}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" DataContext="{Binding Detail}">
+            <Button Name="LoadButton" Content="Load" MinWidth="360" Click="Button_loadClick" Visibility="{Binding Id, Converter={StaticResource LoadVisibilityConverter}}"/>
+        </Grid>
+        <Grid ShowGridLines="True" x:Name="theGrid" DataContext="{Binding Detail}" Grid.Row="1" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp" MouseMove="Grid_MouseMove"
+        Background="Transparent">
+            <Image Name="ImgPhoto" Source="{Binding Image,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Grid ShowGridLines="True" x:Name="theGrid1" Grid.Row="1" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp" MouseMove="Grid_MouseMove"
+        Background="Transparent">
+
+
+            <Canvas>
+                <Rectangle Width="{Binding LocationDetail.Width, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="{Binding LocationDetail.Height, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" x:Name="selectionBox" Visibility="Collapsed" Stroke="Black" StrokeThickness="1"/>
+                 <TextBox  Name="TagBoxItem" Text="{Binding ItemDetail.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="0" Canvas.Top="0"></TextBox>
+                
+                <TextBox  Name="TagBoxPersonName" Text="{Binding PersonDetail.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="0" Canvas.Top="0"></TextBox>
+                <TextBox  Name="TagBoxPersonSureName" Text="{Binding PersonDetail.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="0" Canvas.Top="0"></TextBox>
+                <Button  Name="OkItem" Content="OK" Canvas.Left="0" Canvas.Top="0" Command="{Binding SaveLocationItemCommand}" Click="Tag_OkItemClick" Width="60"/>
+                <Button  Name="OkPerson" Content="OK" Canvas.Left="0" Canvas.Top="0" Command="{Binding SaveLocationPersonCommand}" Click="Tag_OkPersonClick" Width="60"/>
+                <Button  Name="OkPersonFirstName" Content="OK" Canvas.Left="0" Canvas.Top="0"  Click="Tag_OkPersonFirstNameClick" Width="60"/>
+
+                <Button Name="TagButtonPerson" Content="Tag a Person" Canvas.Left="0" Canvas.Top="0" Click="Tag_PersonClick" Width="100"/>
+                <Button Name="TagButtonItem" Content="Tag an Item" Canvas.Left="0" Canvas.Top="0" Click="Tag_ItemClick" Width="100"/>
+                <Button Name="CancelButton" Content="Cancel" Canvas.Left="0" Canvas.Top="0" Click="CancelTag_Click" Width="100"/>
+
+
+            </Canvas>
+
+
+
+        </Grid>
+        <Grid ShowGridLines="True" Grid.Row="2" DataContext="{Binding Detail}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0"  Content="Name: "></Label>
+            <TextBox Name="NameBox" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Grid.Row="1" Grid.Column="0"  Content="Date: "></Label>
+            <TextBox Name="DateBox" Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Grid.Row="2" Grid.Column="0"  Content="Format: "></Label>
+            <TextBox Name="FormatBox" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding Format,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label Grid.Row="3" Grid.Column="0"  Content="Resolution: "></Label>
+            <TextBlock Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <Run Name="HeightRun" Text="{Binding Weight}"/>
+                  <Run Text="x"/>
+                  <Run Name="WidthRun" Text="{Binding Height}"/>
+            </TextBlock>
+            <Label Grid.Row="4" Grid.Column="0"  Content="Note: "></Label>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Additional}" TextWrapping="Wrap"></TextBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Save" Grid.Column="0" Command= "{Binding SavePhotoCommand}" Click="Save_buttonClick"/>
+            <Button Content="Delete" Grid.Column="1" Command= "{Binding DeletePhotoCommand}"/>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Button Content="Add To Album" Command= "{Binding AddToAlbumCommand}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

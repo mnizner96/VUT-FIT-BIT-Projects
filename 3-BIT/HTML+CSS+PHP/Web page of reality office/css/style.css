@@ -1,0 +1,404 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+    min-width: 1000px;
+    background-image: url("Img/blue.jpeg");
+    background-size: 2000px;
+
+
+}
+header h1 {
+    color: red;
+    display: inline-block;
+    font-size: large;
+    font-family: Bowlby One;
+    font-size: 16pt;
+    margin: 10px 15px 10px 15px;
+
+}
+header h1 a{
+    color: red;
+    text-decoration: none;
+}
+
+header h1 a:hover{
+    color: red;
+    text-decoration: underline;
+}
+header {
+    top: 0px;
+    z-index: 100;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+}
+
+header ul {
+
+    display: inline-block;
+    margin: 0px 170px 0 170px;
+}
+
+header li a {
+
+    font-family: Droid Sans;
+    font-size: 14pt;
+    text-decoration: none;
+    color: black;
+
+}
+
+
+header li {
+
+    display: inline-block;
+    margin: 15px 10px 10px 15px;
+
+}
+
+a:hover{
+
+    color: #ff8f0c;
+}
+
+a:visited {
+    text-decoration: none;
+}
+.ul_items {
+
+    margin: 15px 10px 10px 15px;
+    font-size: 20pt;
+    float: right;
+}
+
+#background-header {
+   position: relative;
+
+    margin: 10px 170px 10px 170px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+#background-header img {
+    width: 100%;
+}
+
+.main_div {
+    background-image: url("Img/pattern.png");
+    margin: -26px 170px 0 170px;
+    padding: 20px 20px 20px 20px;
+}
+
+.main_div h1 {
+    color: red;
+    font-family: Bowlby One;
+    font-size: 16pt;
+}
+
+.main_div #Salary_title{
+    color: red;
+    font-family: Bowlby One;
+    font-size: 20pt;
+    margin: 0 520px 0 520px;
+}
+.main_div p {
+    font-family: Droid Sans;
+    font-size: 11pt;
+}
+.main_div ul {
+    font-family: Droid Sans;
+    font-size: 11pt;
+}
+
+#LocalHomeNavigation h1 {
+    color: white;
+    font-family: Bowlby One;
+    font-size: 16pt;
+    background-image: url("Img/blue.jpeg");
+
+}
+
+#LocalSaleNavigation h1{
+    color: red;
+    font-family: Bowlby One;
+    font-size: 14pt;
+}
+.Sale {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+}
+
+.Sale img {
+    border: solid red;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    height: 270px;
+}
+
+
+.Sale_div {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+}
+
+.Sale_div img {
+    border: solid red;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 300px;
+
+}
+#Rental {
+    margin: 0 0 0 100px;
+}
+
+#Salary {
+    margin: 0 0 0 60px;
+}
+
+
+.Button_sale {
+    border: solid red;
+    border-radius: 5px;
+    background-image: url("Img/blue.jpeg");
+    padding: 10px 10px 10px 10px;
+    margin: 15px 120px 15px 120px;
+}
+
+.Button_sale a {
+    text-decoration: none;
+    font-family: Bowlby One;
+    color: white;
+    font-size: 13pt;
+}
+
+.Button_sale a:hover {
+    color: #ff8f0c;
+
+}
+
+.Button a:visited {
+    text-decoration: none;
+}
+footer {
+    background-color: #acacac;
+    font-family: Droid Sans;
+    font-size: 11pt;
+    width: 100%;
+    z-index: 100;
+    position: relative;
+}
+footer p {
+    display: inline-block;
+    margin: 20px 30px 20px 30px;
+}
+footer ul {
+    display: inline-block;
+    margin: 12px 10px 12px 10px;
+    float: right;
+}
+
+footer a {
+    display: inline-block;
+    text-decoration: none;
+    font-family: Droid Sans;
+    font-size: 11pt;
+    color: black;
+}
+
+footer ul a:hover{
+    color: white;
+}
+footer ul a {
+    font-size: 20pt;
+    margin: 0px 2px 0px 2px;
+
+}
+
+.drop_content {
+    position: absolute;
+    display:none;
+    margin: 1px -42px 1px -42px;
+    background-color: #e4e4e4;
+    border: solid black;
+    border-radius: 8px;
+}
+
+.drop_content a {
+    display: inline-block;
+    margin:  0 10px 0 10px;
+    color: #068fff;
+    font-size: 13pt;
+}
+.drop_content a:hover {
+    text-decoration: underline;
+    color: #1935ff;
+}
+.drop_menu:hover .drop_content {
+    display: block;
+    padding: 10px 10px 10px 10px;
+}
+
+.drop-menu:hover .drop-content a:hover {
+    color: red;
+}
+
+.table_image img {
+    border: solid red;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    max-height:250px;
+
+}
+
+.table_additional {
+    padding: 0 10px 0 10px;
+
+}
+.table_additional p{
+    margin: 10px 0 10px 0;
+}
+
+.table_additional .title p{
+    font-size: 12pt;
+    font-family: DroidSans;
+}
+.table_image img {
+    border: solid red;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+    max-height:250px;
+
+}
+
+.table_additional {
+    padding: 0 10px 0 10px;
+
+}
+.table_additional p{
+    margin: 10px 0 10px 0;
+}
+
+.table_additional .title a{
+    font-size: 15pt;
+    font-family: DroidSans;
+    color: #105aff;
+    text-decoration: none;
+}
+
+.table_additional .title a:hover{
+    text-decoration: underline;
+    color: darkblue;
+}
+
+.table_additional .Locality {
+    font-size: 12pt;
+    font-family: DroidSans;
+    color: #666666;
+
+}
+
+.table_additional .Price {
+    font-size: 12pt;
+    color: black;
+    font-family: Bowlby One;
+}
+.table_additional .AddInfo {
+    font-size: 15pt;
+    font-family: DroidSans;
+    color: white;
+    background-image: url("Img/blue.jpeg");
+    border: solid red;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+
+}
+.contact_list li {
+    list-style-type: none;
+    text-decoration: none;
+    font-family: Droid Sans;
+    font-size: 12pt;
+    color: black;
+    font-weight: bold;
+}
+
+.contact_list li a{
+    list-style-type: none;
+    text-decoration: none;
+    font-family: Droid Sans;
+    font-size: 12pt;
+    color: black;
+    font-weight: bold;
+}
+.contact_list a:hover {
+    color: #ff8f0c;
+}
+.drop_list li {
+    list-style-type: disc;
+}
+form {
+    font-family: Droid Sans;
+    font-size: 12pt;
+    color: black;
+    font-weight: bold;
+}
+
+.Button_input {
+    border: solid red;
+    border-radius: 5px;
+    background-image: url("Img/blue.jpeg");
+    padding: 10px 10px 10px 10px;
+    margin: 15px 0 15px 0;
+    text-decoration: none;
+    font-family: Droid Sans;
+    color: white;
+    font-size: 11pt;
+}
+
+input {
+    border: solid red;
+    border-radius: 5px;
+}
+
+textarea{
+    border: solid red;
+    border-radius: 5px;
+}
+
+.makler_div {
+    margin: 0 35px 0 35px;
+}
+
+.makler_p {
+    color: #105aff;
+    font-weight: bold;
+
+}
+
+.table_img img {
+    width: 100%;
+    max-width: 250px;
+    max-height:250px;
+
+}
+
+.table_add {
+    width: 600px;
+    background-image: url("Img/blue.jpeg");
+    color: white;
+    border: solid red;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+
+}
+
+.quality {
+    border-spacing: 100px 0;
+}

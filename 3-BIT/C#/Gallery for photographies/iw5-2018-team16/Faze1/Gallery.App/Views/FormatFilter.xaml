@@ -1,0 +1,33 @@
+﻿<Window x:Class="Gallery.App.Views.FormatFilter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gallery.App.ViewModels"
+        mc:Ignorable="d"
+        DataContext="{Binding FormatFilterViewModel, Source={StaticResource ViewModelLocator}}"
+        d:DataContext="{d:DesignInstance local:FormatFilterViewModel, IsDesignTimeCreatable=False}"
+        Title="Filter by Format" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Name="lblQuestion" MinWidth="250">Choose the format of the photo:</Label>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Stretch">
+            <RadioButton Content=".jpg" IsChecked="{Binding JpgFilter}" Margin="0,0,25,0">
+            </RadioButton>
+            <RadioButton Content=".jepg" IsChecked="{Binding JepgFilter}" Margin="0,0,25,0">
+            </RadioButton>
+            <RadioButton Content=".png" IsChecked="{Binding PngFilter}" >
+            </RadioButton>
+        </WrapPanel>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button IsDefault="True" Command="{Binding FilterByFormatCommand}" Name="btnDialogOk" Click="FormatOk_Click" MinWidth="60" Margin="0,0,10,0">_Ok</Button>
+            <Button IsCancel="True" MinWidth="60">_Cancel</Button>
+        </WrapPanel>
+    </Grid>
+</Window>
+

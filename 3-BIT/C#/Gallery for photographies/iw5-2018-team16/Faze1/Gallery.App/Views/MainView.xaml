@@ -1,0 +1,99 @@
+﻿<Window x:Class="Gallery.App.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Gallery.App.ViewModels"
+        xmlns:views="clr-namespace:Gallery.App.Views"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        DataContext="{Binding MainViewModel, Source={StaticResource ViewModelLocator}}"
+        d:DataContext="{d:DesignInstance viewModels:MainViewModel, IsDesignTimeCreatable=False}">
+  <Grid>
+    <TabControl SelectedIndex="{Binding TabIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+      <TabItem Header="Photographies">
+        <i:Interaction.Triggers>
+          <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+            <i:InvokeCommandAction Command="{Binding SwapToPhotoCommand}"/>
+          </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <Grid x:Name="ListColumnGrid" Grid.Column="0">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="Add New Photography" Command="{Binding AddPhotoCommand}" Grid.Column="0" Click="Button_Click"/>
+            <views:PhotographyListView Grid.Row="1" Loaded="PhotographyListView_Loaded"/>
+          </Grid>
+          <views:PhotographyDetailView Grid.Column="1" MaxWidth="{Binding ElementName=ListColumnGrid, Path=ActualWidth}"/>
+        </Grid>
+
+      </TabItem>
+      <TabItem Header="Albums">
+                
+                <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+                    <Grid x:Name="AlbumListColumnGrid" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <views:AlbumListView Grid.Row="1" Loaded="AlbumListView_Loaded"/>
+                        <views:AlbumDetailView Grid.Row="1" Loaded="AlbumDetailView_Loaded"/>
+
+                    </Grid>
+                    <views:PhotographyDetailView Grid.Column="1" MaxWidth="{Binding ElementName=ListColumnGrid, Path=ActualWidth}"/>
+
+          </Grid>
+
+      </TabItem>
+            <TabItem Header="Person list">
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid x:Name="ListPersonGrid" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <views:PersonListView Grid.Row="1" Loaded="PersonListView_Loaded"/>
+                        <views:PersonDetailView Grid.Row="1" Loaded="PersonDetailView_Loaded"/>
+
+
+                    </Grid>
+                    <views:PhotographyDetailView Grid.Column="1" MaxWidth="{Binding ElementName=ListColumnGrid, Path=ActualWidth}"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Item list">
+           <Grid>
+                   
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="ListItemGrid" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <views:ItemListView Grid.Row="1" Loaded="ItemListView_Loaded"/>
+                </Grid>
+
+           </Grid>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</Window>
