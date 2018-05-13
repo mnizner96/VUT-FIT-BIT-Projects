@@ -9,8 +9,8 @@ The result of the analyze is written to the XML document. My script is using reg
 <strong>--prety-xml=k</strong> number of <strong>k</strong> spaces at the begining of the new line <br>
 <strong>--no-inline</strong> script skips the inline functions <br>
 <strong>--max-par=n</strong> script skips the functions that have more than <strong>n</strong> parameters <br>
---no-duplicates script skips all functions that have same name as first function that was found with this name <br>
---remove-whitespace script temoves all excess spaces
+<strong>--no-duplicates</strong> script skips all functions that have same name as first function that was found with this name <br>
+<strong>--remove-whitespace</strong> script temoves all excess spaces
 
 # Example
-python5.6 cha.php --input=test.h --output=out.xml
+php5.6 cha.php --input=test.h --output=out.xml
