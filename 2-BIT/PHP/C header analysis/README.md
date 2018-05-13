@@ -1,5 +1,5 @@
 # Description
-This project is my implementation of C header analysis in PHP programming language. The goal is search for header files of C programming language in the directory strcuture and then analyze their content.
+This project is my implementation of C header analysis in PHP programming language. The goal is search for header files of C programming language in the directory structure and then analyze their content.
 The result of the analyze is written to the XML document. My script is using regular expressions, functions for recursively transit the directory structure and utilities for creating the XML documents.
 
 # Usage
