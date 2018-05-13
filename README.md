@@ -14,14 +14,14 @@ Solitaire card game (Java) <br>
 Stack and list functions (C) <br>
 XML query (Python)
 ## 3-BIT
-Client-server for search users from database (C)
+Client-server for search users from database (C) <br>
 DNS lookup (C) <br>
 Free basic compiler (C) <br>
 Gallery for photographies (C#) <br>
 Information system of bank company (HTML+CSS+PHP) <br>
 LDAP server (C) <br>
 Simulation of cowshed (C++) <br>
-Snake on 8x8 matrix led display (C)
+Snake on 8x8 matrix led display (C) <br>
 Sudoku (C#) <br>
 Web page of bakery (HTML+CSS) <br>
 Web page of reality office (HTML+CSS)
