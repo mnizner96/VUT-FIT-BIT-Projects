@@ -18,7 +18,7 @@ Client-server for search users from database (C)
 DNS lookup (C) <br>
 Free basic compiler (C) <br>
 Gallery for photographies (C#) <br>
-Information system of bank company (HTML+CSS+PHP)
+Information system of bank company (HTML+CSS+PHP) <br>
 LDAP server (C) <br>
 Simulation of cowshed (C++) <br>
 Snake on 8x8 matrix led display (C)
