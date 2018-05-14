@@ -1,5 +1,5 @@
 # Description
-This program implements client application in C programming language that is querying DNS system and realizing the translation of domain names and IP addresses.
+This program implements client application in C programming language that is querying DNS system and realizing the translation of domain names and IP addresses. Program is implemented by using BSD sockets and UDP protocol.
 
 # Usage
 <strong> -h </strong> prints help <br>
