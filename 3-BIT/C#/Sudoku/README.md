@@ -2,8 +2,8 @@
 This project is simple team implementation of sudoku. We implemented the game as a desktop version. GUI is implemented by WPF.
 
 # Authors
-Ján Gula
-Duong Nguyen Hoang
+Ján Gula <br>
+Duong Nguyen Hoang <br>
 Martin Nizner
 
 # Requirements
