@@ -2,7 +2,7 @@
 This project is very simple team implementation of gallery for photograpihes. It uses MVC design pattern and entity framework for saving data of photographies to the database.
 
 # Authors
-Duong Nguyen Hoang
+Duong Nguyen Hoang <br>
 Martin Nizner
 
 # Requirements
