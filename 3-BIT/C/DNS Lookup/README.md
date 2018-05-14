@@ -7,8 +7,10 @@ This program implements client application in C programming language that is que
 <strong> -T timeout </strong> timeout for query in seconds <br>
 <strong> -t type </strong> type of record (A, AAAA), default value is A <br>
 <strong> -i </strong> iterative type of resolution<br>
-<strong> <name> </strong> Domain name or IP address(PTR record) to translate 
-
+<strong> name </strong> Domain name or IP address(PTR record) to translate 
+# Convention of usage
+./ipk-lookup [-h] <br>
+./ipk-lookup -s server [-T timeout] [-t type] [-i] name <br>
 # Examples
   ./ipk-lookup -s 8.8.8.8 www.fit.vutbr.cz <br>
   ./ipk-lookup -s 8.8.8.8 -t CNAME www4.fit.vutbr.cz. <br>
