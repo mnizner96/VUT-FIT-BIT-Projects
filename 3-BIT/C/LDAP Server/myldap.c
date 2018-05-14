@@ -1,3 +1,7 @@
+/*
+*	Author: Martin Nizner
+*	Project: ISA Proj : LDAP Server FIT VUT Brno
+*/
 #include <stdio.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
