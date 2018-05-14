@@ -7,12 +7,12 @@ Program is implemented by using non-blocking sockets and TCP/IP protocol. Server
 <strong> -f file </strong> path to the <strong> file </strong> in CSV format
 
 # Convention of usage
-./myldap {-p <port>} -f <soubor>
+./myldap {-p port} -f file
 
 # Examples
 
 ## My LDAP server application <br>
-./myldap -p port -f file"
+./myldap -p 5200 -f list.csv
 
 ## LDAP Client
 ldapsearch -h localhost -p 5200 -x uid="xnizne00" <br>
