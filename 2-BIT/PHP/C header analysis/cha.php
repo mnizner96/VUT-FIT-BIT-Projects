@@ -1,3 +1,7 @@
+/*
+*	Author: Martin Nizner
+*	Project: IPP Proj1 : C header analysis FIT VUT Brno
+*/
 <?php
 define("ER_OK",0);
 define("ER_PARAMS",1);
