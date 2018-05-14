@@ -1,6 +1,6 @@
 /*
 *	Author: Martin Nizner
-*	Project: IPK Proj1 : Klient server pro vyhledani uzivatelu FIT VUT Brno
+*	Project: IPK Proj1 : DNS Lookup
 */
 
 #include<arpa/inet.h>
