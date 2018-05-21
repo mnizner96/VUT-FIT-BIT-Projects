@@ -10,4 +10,4 @@ Martin Nizner
 Entity framework for VisualStudio
 
 # GUI
-![Text](https://imgur.com/Srid9SZ "GUI")
+![Text](https://i.imgur.com/Srid9SZ.jpg"GUI")
