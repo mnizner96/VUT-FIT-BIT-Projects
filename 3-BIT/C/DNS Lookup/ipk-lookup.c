@@ -1,3 +1,8 @@
+/*
+*	Author: Martin Nizner
+*	Project: IPK Proj2 : DNS Lookup VUT FIT Brno
+*/
+
 #include<arpa/inet.h>
 #include <stdio.h>
 #include <string.h>

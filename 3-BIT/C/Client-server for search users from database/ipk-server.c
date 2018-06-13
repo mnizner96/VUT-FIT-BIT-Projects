@@ -1,3 +1,8 @@
+/*
+*	Author: Martin Nizner
+*	Project: IPK Proj1 : Klient server pro vyhledani uzivatelu VUT FIT Brno
+*/
+
 #include<arpa/inet.h>
 #include <stdio.h>
 #include <string.h>

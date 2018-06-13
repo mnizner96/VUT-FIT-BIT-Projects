@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #-*- coding: UTF-8 -*-
+#author: Martin Nizner
+#FIT VUT IPP proj 2
 import sys, re, string, os
 import xml.dom.minidom as xml;
 
