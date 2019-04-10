@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: projekt.aux
+The style file: bib-styles/slovakiso.bst
+Database file #1: projekt-20-literatura-bibliography.bib
+Warning--I didn't find a database entry for "Ruian"
+Warning--I didn't find a database entry for "Isui"
+Warning--I didn't find a database entry for "Iksn"
+Warning--I didn't find a database entry for "VDP"
+Warning--I didn't find a database entry for "Iszr"
+Warning--I didn't find a database entry for "Ais"
+Warning--I didn't find a database entry for "Vfr"
+Warning--I didn't find a database entry for "Csv"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 19 entries,
+            3151 wiz_defined-function locations,
+            767 strings with 8584 characters,
+and the built_in function-call counts, 6743 in all, are:
+= -- 462
+> -- 252
+< -- 0
++ -- 125
+- -- 72
+* -- 326
+:= -- 821
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 84
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 618
+empty$ -- 655
+format.name$ -- 79
+if$ -- 1437
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 162
+newline$ -- 83
+num.names$ -- 38
+pop$ -- 437
+preamble$ -- 1
+purify$ -- 68
+quote$ -- 0
+skip$ -- 226
+stack$ -- 0
+substring$ -- 127
+swap$ -- 276
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 70
+warning$ -- 0
+while$ -- 38
+width$ -- 21
+write$ -- 170
+(There were 8 warnings)
