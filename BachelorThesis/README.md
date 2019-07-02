@@ -1,6 +1,6 @@
 # Description
 This script implements exchange of the data between Real Estate Cadastre Information System and the own local database in PHP programming language. Local database is implemeneted in MySql programming language.
-#Folders
+# Folders
 <strong> php </strong> - contains PHP version, that was used for testing of the script <br>
 <strong sql </strong> - sql files for creating and testing the database <br>
 <strong> src </strong> - source files of script <br>
